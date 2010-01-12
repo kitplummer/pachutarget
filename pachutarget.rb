@@ -24,7 +24,7 @@ post '/api/v1' do
         f.puts "Time reported: #{body['timestamp']}"
         f.puts "Threshold: #{body['threshold_value']}"
         f.puts "Reported Value: #{body['triggering_datastream']['value']['current_value']}"
-        f.puts "request.host: #{request.host}"
+        f.puts "request.host: #{request.referrer}"
       end
     end
 #  end
