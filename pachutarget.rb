@@ -9,7 +9,7 @@ get '/' do
 end
 
 post '/api/v1' do
-  if (request.host == "pachube.com" || request.host == "example.org") 
+#  if (request.host == "pachube.com" || request.host == "example.org") 
     body = JSON.parse(params[:body])
 
     Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
@@ -24,7 +24,8 @@ post '/api/v1' do
         f.puts "Time reported: #{body['timestamp']}"
         f.puts "Threshold: #{body['threshold_value']}"
         f.puts "Reported Value: #{body['triggering_datastream']['value']['current_value']}"
+        f.puts "request.host: #{request.host}"
       end
     end
-  end
+#  end
 end
