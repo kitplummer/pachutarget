@@ -1,0 +1,7 @@
+h1. PachuTarget
+
+I'm a super simple microweb-app for receiving "Pachube":http://www.pachube.com triggers from feeds, and email'ing them to who ever is configured in the script.
+
+Fork for you use.
+
+I happen to have deployed to the "Heroku":http://www.heroku.com service (for free, thanks guys!).  Security is sketchy at best.  I just check that it is the expected JSON.  Perhaps somebody with the desire can come up with a better scheme for handling the Pachube push.
