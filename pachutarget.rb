@@ -9,11 +9,11 @@ get '/' do
 end
 
 post '/api/v1' do
-#  if (request.host == "pachube.com" || request.host == "example.org") 
-    body = JSON.parse(params[:body])
+  body = JSON.parse(params[:body])
+  if (body['environment']['feed']) 
 
     Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-    Net::SMTP.start('smtp.gmail.com', 587, 'gmail.com', 'pachutarget@gmail.com', 'foobar99', :login) do |smtp|
+    Net::SMTP.start('smtp.gmail.com', 587, 'gmail.com', 'pachutarget@gmail.com', '', :login) do |smtp|
       smtp.open_message_stream('pachutarget@gmail.com', 'kitplummer@gmail.com') do |f|
         f.puts 'From: pachutarget@gmail.com'
         f.puts 'To: kitplummer@gmail.com'
@@ -27,5 +27,5 @@ post '/api/v1' do
         f.puts "request.host: #{request.referrer}"
       end
     end
-#  end
+  end
 end
